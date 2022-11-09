@@ -1,3 +1,5 @@
+using CoreJwtExample.IRepository;
+using CoreJwtExample.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,9 @@ namespace CoreJwtExample
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoreJwtExample", Version = "v1" });
             });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
