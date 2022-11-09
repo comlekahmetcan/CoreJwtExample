@@ -68,7 +68,7 @@ namespace CoreJwtExample
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using the Bearer scheme.
-                        Enter 'Bearer' [space] and then your token in the next input below
+                        Enter 'Bearer' [space] and then your token in the next input below.
                         Example: 'Bearer asddvsvs123'",
                     Name = "Authorization",
                     In = ParameterLocation.Header,

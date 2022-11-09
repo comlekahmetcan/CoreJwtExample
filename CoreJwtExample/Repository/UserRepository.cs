@@ -51,7 +51,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                var Users = await con.QueryAsync<User>(String.Format(@"SELECT * FROM User WHERE UserId={0}", ojbId));
+                var Users = await con.QueryAsync<User>(String.Format(@"SELECT * FROM Userx WHERE UserId={0}", ojbId));
                 if (Users != null && Users.Count() > 0)
                 {
                     _oUser = Users.SingleOrDefault();
@@ -66,7 +66,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                string sql = string.Format(@"SELECT * FROM [User] WHERE Username='{0}' AND Password='{1}'", user.Username, user.Password);
+                string sql = string.Format(@"SELECT * FROM [Userx] WHERE Username='{0}' AND Password='{1}'", user.Username, user.Password);
                 var users = await con.QueryAsync<User>(sql);
                 if (users != null && users.Count() > 0)
                 {
@@ -82,7 +82,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                var Users = await con.QueryAsync<User>("SELECT * FROM User");
+                var Users = await con.QueryAsync<User>("SELECT * FROM Userx");
                 if (Users != null && Users.Count() > 0)
                 {
                     _oUsers = Users.ToList();
