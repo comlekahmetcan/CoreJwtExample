@@ -10,6 +10,8 @@ namespace CoreJwtExample.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class StudentController : ControllerBase
     {
         private IConfiguration _config;
@@ -23,7 +25,7 @@ namespace CoreJwtExample.Controllers
 
         [HttpGet]
         [Route("Gets1")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Gets1()
         {
             var list = await _oStudentRepository.Gets1();

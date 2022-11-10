@@ -55,7 +55,7 @@ namespace CoreJwtExample.Controllers
                 var user = await AuthenticationUser(model);
                 if (user.UserId == 0) return StatusCode((int)HttpStatusCode.NotFound, "Invalid user");
                 user.Token = GenerateToken(model);
-                return Ok(model);
+                return Ok(user);
             }
             catch (Exception ex)
             {

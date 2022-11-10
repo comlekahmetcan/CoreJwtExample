@@ -29,7 +29,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                var Students = await con.QueryAsync<Student>("SELECT * FROM User");
+                var Students = await con.QueryAsync<Student>("SELECT * FROM Student");
                 if (Students != null && Students.Count() > 0)
                 {
                     _oStudents = Students.ToList();
@@ -44,7 +44,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                var Students = await con.QueryAsync<Student>("SELECT * FROM User");
+                var Students = await con.QueryAsync<Student>("SELECT * FROM Student");
                 if (Students != null && Students.Count() > 0)
                 {
                     _oStudents = Students.ToList();
