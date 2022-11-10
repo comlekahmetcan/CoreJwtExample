@@ -37,7 +37,7 @@ namespace CoreJwtExample
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
             corsBuilder.AllowAnyOrigin();
-            corsBuilder.WithOrigins("http://localhost:8084");
+            corsBuilder.WithOrigins("http://localhost:8080");
             corsBuilder.AllowCredentials();
             services.AddCors(options =>
             {
