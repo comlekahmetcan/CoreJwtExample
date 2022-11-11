@@ -52,7 +52,7 @@ namespace CoreJwtExample.Repository
             using (IDbConnection con = new SqlConnection(_connectionString))
             {
                 if (con.State == ConnectionState.Closed) con.Open();
-                var oStudents = await con.QueryAsync<Student>(String.Format(@"SELECT * FROM Student WHERE StudentId={0}", studentId));
+                var oStudents = await con.QueryAsync<Student>(string.Format(@"SELECT * FROM Student WHERE StudentId={0}", studentId));
                 if (oStudents != null && oStudents.Count() > 0)
                 {
                     _oStudent = oStudents.SingleOrDefault();
@@ -96,7 +96,7 @@ namespace CoreJwtExample.Repository
             _oStudent = new Student();
             try
             {
-                int operationType = Convert.ToInt32(obj.StudentId == 0 ? OperationType.Insert : OperationType.Update);
+                int operationType = Convert.ToInt32(obj.StudentId > 0 ? OperationType.Update : OperationType.Insert);
                 using (IDbConnection con = new SqlConnection(_connectionString))
                 {
                     if (con.State == ConnectionState.Closed) con.Open();
